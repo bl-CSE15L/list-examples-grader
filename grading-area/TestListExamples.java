@@ -1,18 +1,13 @@
 import static org.junit.Assert.*;
-import org.junit.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
-class IsMoon implements StringChecker {
-  public boolean checkString(String s) {
-    return s.equalsIgnoreCase("moon");
-  }
-}
+import org.junit.*;
 
 public class TestListExamples {
-  List<String> input1 = new ArrayList<>();
+    
+    List<String> input1 = new ArrayList<>();
     List<String> input2 = new ArrayList<>();
 
     @Before
@@ -29,19 +24,22 @@ public class TestListExamples {
 
     @Test
     public void testFilter() {
-      List<String> expected = new ArrayList<>();
-      expected.add("apple");
-      expected.add("pineapple");
-      StringChecker containsAP = s -> s.contains("ap");
-      assertArrayEquals(expected.toArray(), (ListExamples.filter(input1, containsAP)).toArray());
+        List<String> expected = new ArrayList<>();
+        expected.add("apple");
+        expected.add("pineapple");
+        StringChecker containsAP = s -> s.contains("ap");
+        assertArrayEquals(expected.toArray(), (ListExamples.filter(input1, containsAP)).toArray());
     }
 
-  @Test(timeout = 500)
-  public void testMergeRightEnd() {
-    List<String> left = Arrays.asList("a", "b", "c");
-    List<String> right = Arrays.asList("a", "d");
-    List<String> merged = ListExamples.merge(left, right);
-    List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
-    assertEquals(expected, merged);
-  }
+    @Test
+    public void testMerge() {
+        List<String> expected = new ArrayList<>();
+        expected.add("apple");
+        expected.add("banana");
+        expected.add("cat");
+        expected.add("dog");
+        expected.add("pineapple");
+        expected.add("rat");
+        assertArrayEquals(expected.toArray(), (ListExamples.merge(input1, input2)).toArray());
+    }
 }

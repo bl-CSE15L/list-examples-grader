@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.junit.*;
 
-public class ListTests {
+public class TestListExamples {
     
     List<String> input1 = new ArrayList<>();
     List<String> input2 = new ArrayList<>();
